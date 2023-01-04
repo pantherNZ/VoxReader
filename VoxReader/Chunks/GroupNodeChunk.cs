@@ -2,7 +2,7 @@
 
 namespace VoxReader.Chunks
 {
-    internal class GroupNodeChunk : NodeChunk, IGroupNodeChunk
+    public class GroupNodeChunk : NodeChunk, IGroupNodeChunk
     {
         public int ChildrenCount => ChildrenNodes.Length;
         public int[] ChildrenNodes { get; }

@@ -2,7 +2,7 @@
 
 namespace VoxReader.Chunks
 {
-    internal class TransformNodeChunk : NodeChunk, ITransformNodeChunk
+    public class TransformNodeChunk : NodeChunk, ITransformNodeChunk
     {
         public string Name { get; }
         public bool IsHidden { get; }

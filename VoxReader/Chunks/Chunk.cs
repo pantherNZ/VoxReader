@@ -4,7 +4,7 @@ using VoxReader.Interfaces;
 
 namespace VoxReader.Chunks
 {
-    internal class Chunk : IChunk
+    public class Chunk : IChunk
     {
         public ChunkType Type { get; }
         public byte[] Content { get; }

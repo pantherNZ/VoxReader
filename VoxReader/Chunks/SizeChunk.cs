@@ -2,7 +2,7 @@
 
 namespace VoxReader.Chunks
 {
-    internal class SizeChunk : Chunk, ISizeChunk
+    public class SizeChunk : Chunk, ISizeChunk
     {
         public Vector3 Size { get; }
 

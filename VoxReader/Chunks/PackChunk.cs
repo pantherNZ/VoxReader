@@ -2,7 +2,7 @@ using VoxReader.Interfaces;
 
 namespace VoxReader.Chunks
 {
-    internal class PackChunk : Chunk, IPackChunk
+    public class PackChunk : Chunk, IPackChunk
     {
         public int ModelCount { get; }
 

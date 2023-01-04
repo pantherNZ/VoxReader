@@ -3,7 +3,7 @@ using VoxReader.Interfaces;
 
 namespace VoxReader.Chunks
 {
-    internal class NodeChunk : Chunk, INodeChunk
+    public class NodeChunk : Chunk, INodeChunk
     {
         public int NodeId { get; }
         

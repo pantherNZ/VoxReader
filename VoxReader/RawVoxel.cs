@@ -1,6 +1,6 @@
 namespace VoxReader
 {
-    internal readonly struct RawVoxel
+    public readonly struct RawVoxel
     {
         /// <summary>
         /// The position of the voxel.

@@ -2,7 +2,7 @@
 
 namespace VoxReader.Chunks
 {
-    internal class VoxelChunk : Chunk, IVoxelChunk
+    public class VoxelChunk : Chunk, IVoxelChunk
     {
         public RawVoxel[] Voxels { get; }
 

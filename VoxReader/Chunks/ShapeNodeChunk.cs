@@ -2,7 +2,7 @@
 
 namespace VoxReader.Chunks
 {
-    internal class ShapeNodeChunk : NodeChunk, IShapeNodeChunk
+    public class ShapeNodeChunk : NodeChunk, IShapeNodeChunk
     {
         public int ModelCount => Models.Length;
         public int[] Models { get; }

@@ -6,7 +6,7 @@ using VoxReader.Interfaces;
 
 namespace VoxReader
 {
-    internal class FormatParser
+    public class FormatParser
     {
         private byte[] data;
 
