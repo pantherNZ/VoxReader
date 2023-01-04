@@ -1,3 +1,5 @@
+using VoxReader.Chunks;
+
 namespace VoxReader.Interfaces
 {
     public interface IVoxFile
@@ -20,6 +22,11 @@ namespace VoxReader.Interfaces
         /// <summary>
         /// All chunks inside the MAIN chunk.
         /// </summary>
-        IChunk[] Chunks { get; }
+        RootChunk ChunkRoot { get; }
+
+        /// <summary>
+        /// The full file path + name. 
+        /// </summary>
+        string FilePath { get; }
     }
 }

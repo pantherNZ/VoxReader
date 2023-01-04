@@ -6,6 +6,7 @@ https://github.com/ephtracy/voxel-model/blob/master/MagicaVoxel-file-format-vox-
 using System;
 using System.IO;
 using System.Linq;
+using VoxReader.Chunks;
 using VoxReader.Extensions;
 using VoxReader.Interfaces;
 
@@ -22,8 +23,7 @@ namespace VoxReader
         public static IVoxFile Read(string filePath)
         {
             byte[] data = File.ReadAllBytes(filePath);
-
-            return Read(data);
+            return Read(filePath, data);
         }
         
         /// <summary>
@@ -31,15 +31,20 @@ namespace VoxReader
         /// </summary>
         public static IVoxFile Read(byte[] data)
         {
-            int versionNumber = BitConverter.ToInt32(data, 4);
+            return Read( null, data );
+        }
 
-            IChunk mainChunk = ChunkFactory.Parse(data.GetRange(8));
+        private static IVoxFile Read( string filePath, byte[] data )
+        {
+            int versionNumber = BitConverter.ToInt32( data, 4 );
 
-            var palette = new Palette(mainChunk.GetChild<IPaletteChunk>().Colors);
+            var mainChunk = new RootChunk( data.GetRange( 8 ) );
 
-            var models = Helper.ExtractModels(mainChunk, palette).ToArray();
+            var palette = new Palette( mainChunk.GetChild<IPaletteChunk>().Colors );
 
-            return new VoxFile(versionNumber, models, palette, mainChunk.Children);
+            var models = Helper.ExtractModels( mainChunk, palette ).ToArray();
+
+            return new VoxFile( versionNumber, models, palette, mainChunk, filePath );
         }
     }
 }
